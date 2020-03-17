@@ -1,3 +1,5 @@
+from calendar import monthrange
+
 from django.db import models
 from django.contrib.postgres.fields import JSONField
 from django.utils.translation import ugettext_lazy as _
@@ -12,6 +14,88 @@ class Extract(models.Model):
     year = models.CharField(_("Year"), max_length=10)
     incomes = JSONField()
     expenses = JSONField()
+
+    @property
+    def get_incomes(self):
+        # Get the month Incomes queryset
+        return Income.objects.filter(
+            creatd_at__gte=self.since, created_at__lte=self.until
+        )
+
+    @property
+    def get_expenses(self):
+        # Get the month Expenses queryset
+        return Expense.objects.filter(
+            created_at__gte=self.since, created_at__lte=self.until
+        )
+
+    @staticmethod
+    def set_incomes(income_list):
+        # Transforms a list of Income model in a list of dict
+        ls = {}
+        for inc in income_list:
+            ls.update(
+                {
+                    inc.id: {
+                        "id": inc.id,
+                        "created_at": inc.created_at,
+                        "modified_at": inc.modified_at,
+                        "concept": inc.concept,
+                        "value": inc.value,
+                        "category": inc.category,
+                    }
+                }
+            )
+        return ls
+
+    @staticmethod
+    def set_expenses(expense_list):
+        # Transforms a list of Expense model in a list of dict
+        ls = {}
+        for exp in expense_list:
+            ls.update(
+                {
+                    exp.id: {
+                        "id": exp.id,
+                        "created_at": ex.created_at,
+                        "modified_at": ex.modified_at,
+                        "concept": exp.concept,
+                        "value": exp.value,
+                        "category": inc.category,
+                    }
+                }
+            )
+        return ls
+
+    @staticmethod
+    def delete_income(pk, sc):
+        """
+        delete_income() deletes the income from the Extract model
+
+        Parameters:
+        pk: int Is the primary key of the Income
+        sc: datetime Is the filter parameter for 
+            find the respective Extract
+        """
+        del_income = Extract.objects.filter(since=sc).first()
+        if del_income:
+            del del_income.incomes[pk]
+            del_income.save()
+
+    @staticmethod
+    def delete_expense(pk, sc):
+        """
+        delete_expense() deletes the income from the Extract model
+
+        Parameters:
+        pk: int Is the primary key of the Expense
+        sc: datetime Is the filter parameter for 
+            find the respective Extract
+        """
+        del_expense = Extract.objects.filter(since=sc).first()
+        if del_expense:
+            del del_expense.expenses[pk]
+            del_expense.save()
 
 
 class Budget(models.Model):
