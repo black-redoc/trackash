@@ -77,13 +77,11 @@ class Budget(models.Model):
     class Meta:
         verbose_name_plural = _("Budget")
 
-    created_at = models.DateTimeField(
-        _("Created At"), auto_now=False, auto_now_add=False
-    )
-    modiefied_at = models.DateTimeField(_("Modified At"), auto_now=True)
-    budget = models.DecimalField(_("Budget"), max_digits=10, decimal_places=2)
-    incomes = models.DecimalField(_("Incomes"), max_digits=7, decimal_places=2)
-    expenses = models.DecimalField(_("Expenses"), max_digits=7, decimal_places=2)
+    created_at = models.DateTimeField(_("Created At"), auto_now_add=True)
+    modified_at = models.DateTimeField(_("Modified At"), auto_now=True)
+    budget = models.DecimalField(_("Budget"), max_digits=11, decimal_places=2)
+    incomes = models.DecimalField(_("Incomes"), max_digits=11, decimal_places=2)
+    expenses = models.DecimalField(_("Expenses"), max_digits=11, decimal_places=2)
 
 
 class Income(models.Model):
