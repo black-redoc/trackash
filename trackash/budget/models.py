@@ -11,9 +11,8 @@ class Extract(models.Model):
     since = models.DateTimeField(_("Since"))
     until = models.DateTimeField(_("Until"))
     month = models.CharField(_("Month"), max_length=12)
-    year = models.CharField(_("Year"), max_length=10)
-    incomes = JSONField()
-    expenses = JSONField()
+    amount = models.DecimalField(_("Amount"), max_digits=10, decimal_places=2)
+    year = models.CharField(_("Year"), max_length=4)
 
     @property
     def get_incomes(self):
@@ -30,72 +29,48 @@ class Extract(models.Model):
         )
 
     @staticmethod
-    def set_incomes(income_list):
-        # Transforms a list of Income model in a list of dict
-        ls = {}
-        for inc in income_list:
-            ls.update(
-                {
-                    inc.id: {
-                        "id": inc.id,
-                        "created_at": inc.created_at,
-                        "modified_at": inc.modified_at,
-                        "concept": inc.concept,
-                        "value": inc.value,
-                        "category": inc.category,
-                    }
-                }
-            )
-        return ls
+    def monthly_extract(today):
+        """ Create the monthly extract """
+        from calendar import monthrange
+        from functools import reduce
 
-    @staticmethod
-    def set_expenses(expense_list):
-        # Transforms a list of Expense model in a list of dict
-        ls = {}
-        for exp in expense_list:
-            ls.update(
-                {
-                    exp.id: {
-                        "id": exp.id,
-                        "created_at": ex.created_at,
-                        "modified_at": ex.modified_at,
-                        "concept": exp.concept,
-                        "value": exp.value,
-                        "category": inc.category,
-                    }
-                }
-            )
-        return ls
+        last_day = monthrange(year=today.year, month=today.month - 1)[1]
+        local_month = today.strftime("%B")
 
-    @staticmethod
-    def delete_income(pk, sc):
-        """
-        delete_income() deletes the income from the Extract model
+        local_since = today.replace(
+            month=today.month - 1, day=1, hour=0, minute=0, second=0, microsecond=0
+        )
 
-        Parameters:
-        pk: int Is the primary key of the Income
-        sc: datetime Is the filter parameter for 
-            find the respective Extract
-        """
-        del_income = Extract.objects.filter(since=sc).first()
-        if del_income:
-            del del_income.incomes[pk]
-            del_income.save()
+        local_until = today.replace(
+            month=today.month - 1,
+            day=last_day,
+            hour=23,
+            minute=59,
+            second=59,
+            microsecond=999999,
+        )
 
-    @staticmethod
-    def delete_expense(pk, sc):
-        """
-        delete_expense() deletes the income from the Extract model
+        local_incomes = reduce(
+            lambda x, y: x.value + y.value,
+            Income.objects.filter(
+                created_at__gte=local_since, created_at__lte=local_until
+            ),
+        )
 
-        Parameters:
-        pk: int Is the primary key of the Expense
-        sc: datetime Is the filter parameter for 
-            find the respective Extract
-        """
-        del_expense = Extract.objects.filter(since=sc).first()
-        if del_expense:
-            del del_expense.expenses[pk]
-            del_expense.save()
+        local_expenses = reduce(
+            lambda x, y: x.value + y.value,
+            Expense.objects.filter(
+                created_at__gte=local_since, created_at__lte=local_until
+            ),
+        )
+
+        Extract.objects.create(
+            since=local_since,
+            until=local_until,
+            month=local_month,
+            year=today.year,
+            amount=local_incomes - local_expenses,
+        )
 
 
 class Budget(models.Model):
@@ -113,7 +88,7 @@ class Budget(models.Model):
 
 class Income(models.Model):
     created_at = models.DateTimeField(_("Created At"), auto_now_add=True)
-    modiefied_at = models.DateTimeField(_("Modified At"), auto_now=True)
+    modified_at = models.DateTimeField(_("Modified At"), auto_now=True)
     concept = models.CharField(_("Concept"), max_length=50)
     value = models.CharField(_("Value"), max_length=50)
     category = models.CharField(_("Category"), max_length=50, choices=income_category)
@@ -121,7 +96,7 @@ class Income(models.Model):
 
 class Expense(models.Model):
     created_at = models.DateTimeField(_("Created At"), auto_now_add=True)
-    modiefied_at = models.DateTimeField(_("Modified At"), auto_now=True)
+    modified_at = models.DateTimeField(_("Modified At"), auto_now=True)
     concept = models.CharField(_("Concept"), max_length=50)
     value = models.CharField(_("Value"), max_length=50)
     category = models.CharField(_("Category"), max_length=50, choices=expense_category)

@@ -1,18 +1,20 @@
 from django.contrib import admin
 
-from .models import Income, Expense, Budget
-
-
-"""
-form = UserChangeForm
-add_form = UserCreationForm
-fieldsets = (("User", {"fields": ("name",)}),) + auth_admin.UserAdmin.fieldsets
-list_display = ["username", "name", "is_superuser"]
-search_fields = ["name"]
-"""
+from .models import Income, Expense, Budget, Extract
 
 admin.site.register(Budget)
 
-admin.site.register(Income)
 
-admin.site.register(Expense)
+@admin.register(Income)
+class IncomeAdmin(admin.ModelAdmin):
+    list_display = ("created_at", "concept", "value", "category")
+
+
+@admin.register(Expense)
+class ExpenseAdmin(admin.ModelAdmin):
+    list_display = ("created_at", "concept", "value", "category")
+
+
+@admin.register(Extract)
+class ExtractAdmin(admin.ModelAdmin):
+    list_display = ("since", "until", "month", "year")

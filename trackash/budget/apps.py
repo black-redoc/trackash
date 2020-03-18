@@ -8,6 +8,7 @@ class BudgetConfig(AppConfig):
 
     def ready(self):
         try:
-            import trackash.budget.signals  # noqa F401
+            import trackash.budget.signals
+
         except ImportError:
             pass
