@@ -5,7 +5,7 @@ from .models import Income, Expense, Budget, Extract
 
 @admin.register(Budget)
 class BudgetAdmin(admin.ModelAdmin):
-    list_display = ("budget", "incomes", "expenses")
+    list_display = ("balance", "incomes", "expenses")
 
 
 @admin.register(Income)
