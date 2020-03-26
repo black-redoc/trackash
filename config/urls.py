@@ -16,6 +16,7 @@ urlpatterns = [
     path("users/", include("trackash.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path("budget/", include("trackash.budget.urls", namespace="budget")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
