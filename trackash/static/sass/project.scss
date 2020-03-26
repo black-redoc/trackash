@@ -1,7 +1,3 @@
-
-
-
-
 // project specific CSS goes here
 
 ////////////////////////////////
@@ -34,4 +30,52 @@ $red: #b94a48;
   background-color: $pink;
   border-color: $dark-pink;
   color: $red;
+}
+
+// main containers needs left off for don't be hide for the navbar
+
+.main {
+  margin-left: 50px;
+}
+
+
+// navbar
+
+.left_navbar {
+  position: fixed;
+  height: 100vh;
+  width: 50px;
+}
+
+.nav-icon {
+  font-size: 30px;
+  margin: 4px 0 10px 0 !important;
+  padding: 7px;
+}
+
+.nitem-left  {
+  margin: 8px 0;
+  font-size: 22px;
+  padding: 10px;
+  &:hover {
+    background: rgb(24, 111, 226);
+    background: linear-gradient(90deg, rgba(24, 111, 226,1) 0%, rgba(24, 111, 226,1) 3%, rgba(223,224,255,1) 17%, rgba(222,223,255,1) 99%);
+  }
+}
+
+.nitem-active,  .nitem-active:hover {
+  background: rgb(6,0,107);
+  background: linear-gradient(90deg, rgba(6,0,107,1) 0%, rgba(0,6,105,1) 3%, rgba(223,224,255,1) 17%, rgba(222,223,255,1) 99%);
+}
+
+.link {
+  text-decoration: none !important;
+  color: #06006b;
+  &:hover {
+    color: #186fe2;
+  }
+}
+
+.lactive, .lactive:hover {
+  color: #06006b !important;
 }

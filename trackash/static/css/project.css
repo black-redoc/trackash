@@ -1,13 +1,56 @@
-/* These styles are generated from project.scss. */
-
 .alert-debug {
-  color: black;
-  background-color: white;
+  background-color: #fff;
   border-color: #d6e9c6;
+  color: #000;
 }
 
 .alert-error {
-  color: #b94a48;
   background-color: #f2dede;
   border-color: #eed3d7;
+  color: #b94a48;
 }
+
+.main {
+  margin-left: 50px;
+}
+
+.left_navbar {
+  position: fixed;
+  height: 100vh;
+  width: 50px;
+}
+
+.nav-icon {
+  font-size: 30px;
+  margin: 4px 0 10px 0 !important;
+  padding: 7px;
+}
+
+.nitem-left {
+  margin: 8px 0;
+  font-size: 22px;
+  padding: 10px;
+}
+.nitem-left:hover {
+  background: #186fe2;
+  background: linear-gradient(90deg, #186fe2 0%, #186fe2 3%, #dfe0ff 17%, #dedfff 99%);
+}
+
+.nitem-active, .nitem-active:hover {
+  background: #06006b;
+  background: linear-gradient(90deg, #06006b 0%, #000669 3%, #dfe0ff 17%, #dedfff 99%);
+}
+
+.link {
+  text-decoration: none !important;
+  color: #06006b;
+}
+.link:hover {
+  color: #186fe2;
+}
+
+.lactive, .lactive:hover {
+  color: #06006b !important;
+}
+
+/*# sourceMappingURL=project.css.map */
