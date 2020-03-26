@@ -37,8 +37,8 @@
 }
 
 .nitem-active, .nitem-active:hover {
-  background: #06006b;
-  background: linear-gradient(90deg, #06006b 0%, #000669 3%, #dfe0ff 17%, #dedfff 99%);
+  background: #372fd8;
+  background: linear-gradient(90deg, #372fd8 0%, #372fd8 3%, #dfe0ff 17%, #dedfff 99%);
 }
 
 .link {

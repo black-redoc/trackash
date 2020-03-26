@@ -1,4 +1,11 @@
 from django.shortcuts import render
+from django.views import View
+
+
+class DashboardView(View):
+    def get(request):
+        pass
+
 
 
 def budget_view(request):
