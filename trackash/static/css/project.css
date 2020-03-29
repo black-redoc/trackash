@@ -18,6 +18,7 @@
   position: fixed;
   height: 100vh;
   width: 50px;
+  border-right: 1px solid rgba(175, 175, 175, 0.4);
 }
 
 .nav-icon {
@@ -51,6 +52,221 @@
 
 .lactive, .lactive:hover {
   color: #06006b !important;
+}
+
+.container-dashboard {
+  position: absolute;
+  left: 4%;
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-between;
+  height: 100vh;
+  width: 95vw;
+}
+
+.main-container {
+  left: 0;
+  width: 75% !important;
+  display: flex;
+  flex-flow: wrap column;
+}
+
+.right-container {
+  width: 25% !important;
+  right: 0;
+}
+
+.blue-badge {
+  margin: 20px 30px;
+  background: #0663b9;
+  border-radius: 6px;
+  padding: 25px 50px;
+  height: 150px;
+}
+.blue-badge h3 {
+  margin: 0;
+  padding: 0;
+}
+.blue-badge span {
+  margin-left: 8px;
+}
+
+.badge-title {
+  color: #afafaf;
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.badge-dolar {
+  font-size: 45px;
+  color: #afafaf;
+}
+
+.badge-content {
+  margin-left: 4px;
+  font-size: 45px;
+  color: #eeeeee;
+  display: inline;
+}
+
+.cash-today {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-between;
+  padding: 0px 30px;
+}
+
+.today-expenses {
+  background: #346be0;
+  border-radius: 8px;
+  padding: 8px 30px;
+}
+.today-expenses h3 {
+  font-size: 15px;
+  color: #afafaf;
+}
+.today-expenses h4 {
+  font-size: 20px;
+  color: #eeeeee;
+  display: inline;
+}
+.today-expenses span {
+  font-size: 20px;
+}
+
+.today-income {
+  border: 2px solid #e9e9e9;
+  border-radius: 8px;
+  padding: 8px 30px;
+}
+.today-income h3 {
+  font-size: 15px;
+  color: #afafaf;
+}
+.today-income span {
+  font-size: 20px;
+}
+.today-income h4 {
+  display: inline;
+}
+
+.month-selector {
+  border: 2px solid #e9e9e9;
+  border-radius: 8px;
+  padding: 8px 30px;
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
+}
+.month-selector div.month-to, .month-selector div.month-from {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-between;
+  color: #afafaf;
+  margin-right: 5px;
+}
+.month-selector div.month-to span, .month-selector div.month-from span {
+  color: #000;
+  margin-left: 8px;
+}
+.month-selector .selector {
+  cursor: pointer;
+  margin: 0 5px;
+  padding: 0;
+  border-left: 1px solid #afafaf;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.month-selector .selector i {
+  color: #afafaf;
+  font-size: 30px;
+  margin-left: 15px;
+  margin-right: -15px;
+}
+
+.dachart {
+  margin: 10px 20px;
+  padding: 5px 20px;
+}
+.dachart canvas {
+  width: 100% !important;
+  height: 240px !important;
+}
+
+.daily-container {
+  display: flex;
+  flex-flow: wrap row;
+  padding: 0 30px;
+  height: 120px !important;
+}
+.daily-container .daily-budget {
+  background-color: #346be0;
+  border-radius: 6px;
+  padding: 8px 40px;
+  margin: 0 10px;
+  height: 100px;
+}
+.daily-container .daily-budget h1 {
+  font-size: 15px;
+  color: #afafaf;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
+.daily-container .daily-budget span {
+  color: #afafaf;
+  margin-right: 5px;
+  font-size: 35px;
+}
+.daily-container .daily-budget h4 {
+  display: inline;
+  font-size: 35px;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+}
+.daily-container .spent-today {
+  margin: 0 10px;
+  width: 60% !important;
+}
+.daily-container .spent-today h1 {
+  font-size: 15px;
+  color: #afafaf;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
+.daily-container .spent-today div {
+  display: flex;
+  flex-flow: wrap row;
+  align-items: center;
+}
+.daily-container .spent-today div div span {
+  font-size: 35px;
+  margin-right: 5px;
+  color: #afafaf;
+}
+.daily-container .spent-today div div h4 {
+  padding: 0;
+  margin: 0;
+  display: inline;
+  color: #346be0;
+  font-size: 35px;
+}
+.daily-container .spent-today div div.progress {
+  width: 320px;
+  height: 25px;
+  margin-left: 20px;
+}
+.daily-container .spent-today div .edit-btn {
+  cursor: pointer;
+  margin-left: 15px;
+}
+.daily-container .spent-today div .edit-btn i {
+  font-size: 20px;
+  color: #346be0;
 }
 
 /*# sourceMappingURL=project.css.map */

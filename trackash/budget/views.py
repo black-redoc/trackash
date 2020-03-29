@@ -5,11 +5,11 @@ from .models import Budget
 
 
 class DashboardView(View):
-    queryset = Budget.objects.filter().first()
-    context = {"queryset": queryset}
+    budget = Budget.objects.first()
+    context = {"budget": budget}
 
-    def get(request):
-        return render(request, "budget/dashboard.html", context)
+    def get(self, request, *args, **kwargs):
+        return render(request, "budget/dashboard.html", self.context)
 
 
 def budget_view(request):

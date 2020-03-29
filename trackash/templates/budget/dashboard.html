@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container-dashboard">
+        <div class="main-container">
+            <div class="blue-badge">
+                {% if budget %}
+                    <h3 class="badge-title">Total Balance</h3>
+                    <span class="badge-dolar">$</span><h1 class="badge-content">{{ budget.balance }}</h1>
+                {% else %}
+                    <h1>$0</h1>
+                {% endif %}
+            </div>
+            <div class="cash-today">
+                <div class="today-expenses">
+                    <h3>Expenses</h3>
+                    <span class="badge-dolar">$</span>
+                    {% if budget %} <h4>{{ budget.expenses }}</h4>
+                    {% else %} <h4>0</h4>
+                    {% endif %}
+                </div>
+                <div class="today-income">
+                    <h3>Income</h3>
+                    <span class="badge-dolar">$</span>
+                    {% if budget %} <h4>{{ budget.incomes }}</h4>
+                    {% else %} <h4>0</h4>
+                    {% endif %}
+                </div>
+                <div class="month-selector">
+                    <div>
+                        <div class="month-to">
+                            To<span>15 Jun</span>
+                        </div>
+                        <div class="month-from">
+                            From<span>20 Jun</span>
+                        </div>
+                    </div>
+                    <div class="selector">
+                        <i class="icofont-curved-down"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="dachart">
+                <canvas id="myChart" width="700" height="200">
+                </canvas>
+            </div>
+            <div class="daily-container">
+                <div class="daily-budget">
+                    <h1>Daily Budget</h1>
+                    <span>$</span><h4>120.000,00</h4>
+                </div>
+                <div class="spent-today">
+                    <h1>Spent Today</h1>
+                    <div>
+                        <div>
+                            <span>$</span><h4>50.000,00</h4>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"  aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75</div>
+                        </div>
+                        <div class="edit-btn">
+                            <i class="icofont-ui-edit"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-container">
+            <h1>Hello, Black</h1>
+        </div>
+    </div>
+{% endblock %}
