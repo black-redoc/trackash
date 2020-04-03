@@ -1,72 +1,153 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div class="container-dashboard">
-        <div class="main-container">
-            <div class="blue-badge">
-                {% if budget %}
-                    <h3 class="badge-title">Total Balance</h3>
-                    <span class="badge-dolar">$</span><h1 class="badge-content">{{ budget.balance }}</h1>
-                {% else %}
-                    <h1>$0</h1>
-                {% endif %}
-            </div>
-            <div class="cash-today">
-                <div class="today-expenses">
-                    <h3>Expenses</h3>
-                    <span class="badge-dolar">$</span>
-                    {% if budget %} <h4>{{ budget.expenses }}</h4>
-                    {% else %} <h4>0</h4>
-                    {% endif %}
-                </div>
-                <div class="today-income">
-                    <h3>Income</h3>
-                    <span class="badge-dolar">$</span>
-                    {% if budget %} <h4>{{ budget.incomes }}</h4>
-                    {% else %} <h4>0</h4>
-                    {% endif %}
-                </div>
-                <div class="month-selector">
-                    <div>
-                        <div class="month-to">
-                            To<span>15 Jun</span>
-                        </div>
-                        <div class="month-from">
-                            From<span>20 Jun</span>
-                        </div>
-                    </div>
-                    <div class="selector">
-                        <i class="icofont-curved-down"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="dachart">
-                <canvas id="myChart" width="700" height="200">
-                </canvas>
-            </div>
-            <div class="daily-container">
-                <div class="daily-budget">
-                    <h1>Daily Budget</h1>
-                    <span>$</span><h4>120.000,00</h4>
-                </div>
-                <div class="spent-today">
-                    <h1>Spent Today</h1>
-                    <div>
-                        <div>
-                            <span>$</span><h4>50.000,00</h4>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"  aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75</div>
-                        </div>
-                        <div class="edit-btn">
-                            <i class="icofont-ui-edit"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="container-dashboard">
+    <div class="main-container">
+      <div class="blue-badge">
+        {% if budget %}
+          <h3 class="badge-title">Total Balance</h3>
+          <span class="badge-dolar">$</span><h1 class="badge-content">{{ budget.balance }}</h1>
+        {% else %}
+          <h1>$0</h1>
+        {% endif %}
+      </div>
+
+      <div class="cash-today">
+        <div class="today-expenses">
+          <h3>Expenses</h3>
+          <span class="badge-dolar">$</span>
+          {% if budget %} <h4>{{ budget.expenses }}</h4>
+          {% else %} <h4>0</h4>
+          {% endif %}
         </div>
-        <div class="right-container">
-            <h1>Hello, Black</h1>
+
+        <div class="today-income">
+          <h3>Income</h3>
+          <span class="badge-dolar">$</span>
+          {% if budget %} <h4>{{ budget.incomes }}</h4>
+          {% else %} <h4>0</h4>
+          {% endif %}
         </div>
+
+        <div class="month-selector">
+          <div>
+            <div class="month-to">
+              To<span>15 Jun</span>
+            </div>
+            <div class="month-from">
+              From<span>20 Jun</span>
+            </div>
+          </div>
+          <div class="selector">
+            <i class="icofont-curved-down"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="dachart">
+        <canvas id="myChart" width="700" height="200"></canvas>
+      </div>
+
+      <div class="daily-container">
+        <div class="daily-budget">
+          <h1>Daily Budget</h1>
+          <span>$</span><h4>120.000,00</h4>
+        </div>
+        <div class="spent-today">
+          <h1>Spent Today</h1>
+          <div>
+            <div>
+              <span>$</span><h4>50.000,00</h4>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"  aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75</div>
+            </div>
+            <div class="edit-btn">
+              <i class="icofont-ui-edit"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div class="right-container">
+      <div class="profile-card">
+        <img src="https://img.favpng.com/0/23/12/computer-icons-user-profile-avatar-download-png-favpng-HCP2ruSy9qq256gNd6va7BTdJ.jpg"/>
+        <h1>Hello, Pepito</h1> 
+        <span>pepito@gmail.com</span>
+        <div class="card-icons">
+          <i class="icofont-ui-messaging"></i>
+          <i class="icofont-notification"></i>
+        </div>
+      </div>
+
+      <div class="cards-card">
+        <h1>My Cards</h1>
+        <div class="cards">
+          <div class="credit-card">
+            <img src="{% static 'images/v.isa.png'%}">
+            <div>
+              <i class="icofont-micro-chip"></i>
+              <span>****</span>
+              <p>3487</p>
+            </div>
+            <p>Card holder name</p>
+            <h4>Pepito Perez</h4>
+            <p>Exp. Date</p>
+            <h4>10/20</h4>  
+          </div>
+            
+          <div class="credit-card-add">
+            <i class="icofont-plus"></i>
+          </div>
+        </div>
+      </div>
+    
+      <div class="card-history">
+        <div class="card-history-title">
+          <h1>Card History</h1>
+          <span>All</span>
+        </div>
+        
+        <div class="card-history-body">
+          <div class="card-history-item">
+            <i class="icofont-brand-amazon"></i>
+            <div>
+              <h3>Deposit from aws</h3>
+              <span>10 Apr, 18:20</span>
+            </div>
+            <h4><span>+</span> $20.000</h4>
+          </div>
+
+          <div class="card-history-item">
+            <i class="icofont-brand-amazon"></i>
+            <div>
+              <h3>Deposit from aws</h3>
+              <span>10 Apr, 18:20</span>
+            </div>
+            <h4><span>+</span> $20.000</h4>
+          </div>
+
+          <div class="card-history-item">
+            <i class="icofont-brand-amazon"></i>
+            <div>
+              <h3>Deposit from aws</h3>
+              <span>10 Apr, 18:20</span>
+            </div>
+            <h4><span>+</span> $20.000</h4>
+          </div>
+
+          <div class="card-history-item">
+            <i class="icofont-brand-amazon"></i>
+            <div>
+              <h3>Deposit from aws</h3>
+              <span>10 Apr, 18:20</span>
+            </div>
+            <h4><span>+</span> $20.000</h4>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

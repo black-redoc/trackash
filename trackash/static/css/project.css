@@ -192,7 +192,7 @@
 }
 .dachart canvas {
   width: 100% !important;
-  height: 240px !important;
+  height: 210px !important;
 }
 
 .daily-container {
@@ -204,7 +204,7 @@
 .daily-container .daily-budget {
   background-color: #346be0;
   border-radius: 6px;
-  padding: 8px 40px;
+  padding: 8px 20px;
   margin: 0 10px;
   height: 100px;
 }
@@ -256,9 +256,9 @@
   font-size: 35px;
 }
 .daily-container .spent-today div div.progress {
-  width: 320px;
+  width: 300px;
   height: 25px;
-  margin-left: 20px;
+  margin-left: 15px;
 }
 .daily-container .spent-today div .edit-btn {
   cursor: pointer;
@@ -267,6 +267,179 @@
 .daily-container .spent-today div .edit-btn i {
   font-size: 20px;
   color: #346be0;
+}
+
+.right-container {
+  margin: 20px 0;
+}
+
+.profile-card {
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eeeeee;
+  padding: 20px 0;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+.profile-card img {
+  width: 50px;
+  border-radius: 100%;
+}
+.profile-card h1 {
+  font-size: 20px;
+}
+.profile-card span {
+  color: #afafaf;
+}
+.profile-card div.card-icons {
+  display: flex;
+  flex-flow: wrap row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100px;
+  margin-top: 12px;
+}
+.profile-card div.card-icons i {
+  font-size: 15px;
+  background-color: #346be0;
+  border-radius: 100%;
+  padding: 8px;
+  color: #eeeeee;
+  cursor: pointer;
+}
+
+.cards-card h1 {
+  font-size: 20px;
+}
+
+.credit-card {
+  border: 1px solid #346be0;
+  background-color: #346be0;
+  border-radius: 6px;
+  width: 130px;
+  padding: 10px;
+}
+.credit-card img {
+  width: 50px !important;
+}
+.credit-card div {
+  display: flex;
+  flex-flow: wrap row;
+  align-items: center;
+  justify-content: space-around;
+}
+.credit-card div i {
+  margin: 10px 10px 10px 0;
+  color: #e9e9e9;
+}
+.credit-card div span, .credit-card div p {
+  font-weight: 700;
+  color: #e9e9e9;
+}
+.credit-card div span {
+  font-size: 25px;
+}
+.credit-card div i {
+  transform: translateY(-20%) translateX(10%);
+}
+.credit-card div p {
+  transform: translateY(-35%);
+  font-size: 15px;
+}
+.credit-card p {
+  font-size: 10px;
+  padding: 0;
+  margin: 10px 0 0 0;
+  color: #afafaf;
+}
+.credit-card h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  color: #e9e9e9;
+  font-weight: 600;
+}
+
+.credit-card-add {
+  background-color: #afafaf;
+  width: 130px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.cards {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-around;
+}
+
+.card-history {
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  flex-flow: wrap column;
+}
+.card-history .card-history-title {
+  display: flex;
+  flex-flow: wrap row;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-history .card-history-title h1 {
+  font-size: 15px;
+}
+.card-history .card-history-title span {
+  font-size: 10px;
+  background-color: #346be0;
+  color: #e9e9e9;
+  padding: 6px;
+  border-radius: 100%;
+}
+.card-history .card-history-body {
+  margin-top: 10px;
+  display: flex;
+  flex-flow: nowrap column;
+  align-items: center;
+  height: 120px;
+  overflow-y: scroll;
+  overflow-x: none;
+}
+.card-history .card-history-body .card-history-item {
+  margin-top: 5px;
+  display: flex;
+  flex-flow: wrap row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+.card-history .card-history-body .card-history-item i {
+  padding: 8px;
+  background-color: #e9e9e9;
+  border-radius: 100%;
+}
+.card-history .card-history-body .card-history-item div {
+  display: flex;
+  flex-flow: wrap column;
+}
+.card-history .card-history-body .card-history-item div h3 {
+  font-size: 10px;
+}
+.card-history .card-history-body .card-history-item div span {
+  font-size: 8px;
+  color: #afafaf;
+}
+.card-history .card-history-body .card-history-item h4 {
+  font-weight: 800;
+  color: #9a9acc;
+  font-size: 12px;
+}
+.card-history .card-history-body .card-history-item h4 span {
+  font-size: 15px;
 }
 
 /*# sourceMappingURL=project.css.map */
