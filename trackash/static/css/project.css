@@ -148,6 +148,7 @@
 }
 .today-income h4 {
   display: inline;
+  font-size: 20px;
 }
 
 .month-selector {
