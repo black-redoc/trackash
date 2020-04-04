@@ -6,6 +6,7 @@ from django.views.generic.edit import CreateView
 from .models import Budget, Income
 from .forms import IncomeForm
 
+
 class DashboardView(View):
     budget = Budget.objects.first()
     context = {"budget": budget}
@@ -16,8 +17,8 @@ class DashboardView(View):
 
 class IncomeCreateView(CreateView):
     model = Income
-    success_url = reverse_lazy("budget:dashboard")
     form_class = IncomeForm
+    success_url = reverse_lazy("budget:dashboard")
 
 
 def budget_view(request):
