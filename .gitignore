@@ -285,4 +285,7 @@ trackash/media/
 
 ### sass compiled map files
 *.css.map
+ass-cache/
+*.sass.map
+*.scss.map
 

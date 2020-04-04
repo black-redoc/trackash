@@ -7,7 +7,7 @@
     <form class="col-sm-5 offset-3 mt-5" method="post">{% csrf_token %}
       {{ form|crispy }}
       <input class="btn btn-primary" type="submit" value="Save"/>
-      <a class="btn btn-danger ml-2" href="#">Cancel</a>
+      <a class="btn btn-danger ml-2" href="{% url 'budget:dashboard' %}">Cancel</a>
     </form>
   </div>
 {% endblock %}
