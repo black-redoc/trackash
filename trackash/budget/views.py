@@ -3,8 +3,8 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic.edit import CreateView
 
-from .models import Budget, Income
-from .forms import IncomeForm
+from .models import Budget, Income, Expense
+from .forms import IncomeForm, ExpenseForm
 
 
 class DashboardView(View):
@@ -18,6 +18,12 @@ class DashboardView(View):
 class IncomeCreateView(CreateView):
     model = Income
     form_class = IncomeForm
+    success_url = reverse_lazy("budget:dashboard")
+
+
+class ExpenseCreateView(CreateView):
+    model = Expense
+    form_class = ExpenseForm
     success_url = reverse_lazy("budget:dashboard")
 
 
