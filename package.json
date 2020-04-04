@@ -1,0 +1,22 @@
+{
+  "name": "trackash",
+  "version": "0.1",
+  "description": "manage budget and money",
+  "main": "trackas/static/js/index.js",
+  "repository": "git@github.com:black-redoc/trackash.git",
+  "author": "sebas_black <joseb.twelve@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "sass --watch ./trackash/static/sass/:./trackash/static/css/",
+    "build": "webpack --mode=production"
+  },
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "patternomaly": "^1.3.2",
+    "sass": "^1.26.3"
+  },
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}

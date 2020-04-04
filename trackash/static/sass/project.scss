@@ -1,7 +1,3 @@
-
-
-
-
 // project specific CSS goes here
 
 ////////////////////////////////
@@ -16,6 +12,10 @@ $black: #000;
 $pink: #f2dede;
 $dark-pink: #eed3d7;
 $red: #b94a48;
+$bwhite: #eeeeee; // badge_white
+$bgray: #afafaf; // badge_gray
+$tblue: #346be0; // today_blue
+$tbeige: #e9e9e9; // today_beige
 
 ////////////////////////////////
 		//Alerts//
@@ -35,3 +35,461 @@ $red: #b94a48;
   border-color: $dark-pink;
   color: $red;
 }
+
+// main containers needs left off for don't be hide for the navbar
+
+.main {
+  margin-left: 50px;
+}
+
+
+// navbar
+
+.left_navbar {
+  position: fixed;
+  height: 100vh;
+  width: 50px;
+  border-right: 1px solid rgba(175, 175, 175, .4);
+}
+
+.nav-icon {
+  font-size: 30px;
+  margin: 4px 0 10px 0 !important;
+  padding: 7px;
+}
+
+.nitem-left  {
+  margin: 8px 0;
+  font-size: 22px;
+  padding: 10px;
+  &:hover {
+    background: rgb(24, 111, 226);
+    background: linear-gradient(90deg, rgba(24, 111, 226,1) 0%, rgba(24, 111, 226,1) 3%, rgba(223,224,255,1) 17%, rgba(222,223,255,1) 99%);
+  }
+}
+
+.nitem-active,  .nitem-active:hover {
+  background: rgb(55, 47, 216);
+  background: linear-gradient(90deg, rgba(55, 47, 216,1) 0%, rgba(55, 47, 216,1) 3%, rgba(223,224,255,1) 17%, rgba(222,223,255,1) 99%);
+}
+
+.link {
+  text-decoration: none !important;
+  color: #06006b;
+  &:hover {
+    color: #186fe2;
+  }
+}
+
+.lactive, .lactive:hover {
+  color: #06006b !important;
+}
+
+// Dashboard
+
+.container-dashboard {
+  position: absolute;
+  left: 4%;
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-between;
+  height: 100vh;
+  width: 95vw;  
+}
+
+.main-container {
+  left: 0;
+  width: 75% !important;
+  display: flex;
+  flex-flow: wrap column;
+}
+
+.right-container {
+  width:25% !important;
+  right: 0;
+}
+
+.blue-badge {
+  margin: 20px 30px;
+  background: #0663b9;
+  border-radius: 6px;
+  padding: 25px 50px;
+  height: 150px;
+  h3 {
+    margin: 0;
+    padding: 0;
+  }
+  span {
+    margin-left: 8px;
+  }
+}
+
+.badge-title {
+  color: $bgray;
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.badge-dolar {
+  font-size: 45px;
+  color: $bgray;
+}
+
+.badge-content {
+  margin-left: 4px;
+  font-size: 45px;
+  color: $bwhite;
+  display: inline;
+}
+
+.cash-today {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-between;
+  padding: 0px 30px;
+}
+
+.today-expenses {
+  background: $tblue;
+  border-radius: 8px;
+  padding: 8px 30px;
+  h3 {
+    font-size:15px;
+    color: $bgray;
+  }
+  h4 {
+    font-size: 20px;
+    color: $bwhite;
+    display: inline;
+  }
+  span {
+    font-size: 20px;
+  }
+}
+
+.today-income {
+  border: 2px solid $tbeige;
+  border-radius: 8px;
+  padding: 8px 30px;
+  h3 {
+    font-size: 15px;
+    color: $bgray;
+  }
+  span {
+    font-size: 20px;
+  }
+  h4 {
+    display: inline;
+    font-size: 20px;
+  }
+}
+
+.month-selector {
+  border: 2px solid $tbeige;
+  border-radius: 8px;
+  padding: 8px 30px;
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
+  div.month-to , div.month-from {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    color: $bgray;
+    margin-right: 5px;
+    span {
+      color: #000;
+      margin-left: 8px;
+    }
+  }
+  .selector {
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 0;
+    border-left: 1px solid $bgray;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      color: $bgray;
+      font-size: 30px;
+      margin-left: 15px;
+      margin-right: -15px;
+    }
+  }
+}
+
+.dachart {
+  margin: 10px 20px;
+  padding: 5px 20px;
+  canvas {
+    width: 100% !important;
+    height: 210px !important;
+  }
+}
+
+.daily-container {
+  display: flex;
+  flex-flow: wrap row;
+  padding: 0 30px;
+  height: 120px !important;
+  .daily-budget {
+    background-color: $tblue;
+    border-radius: 6px;
+    padding: 8px 20px;
+    margin: 0 10px;
+    height: 100px;
+    h1 {
+      font-size: 15px;
+      color: $bgray;
+      padding: 0;
+      margin: 0;
+      margin-top: 10px;
+    }
+    span {
+      color: $bgray;
+      margin-right: 5px;
+      font-size: 35px;
+    }
+    h4 {
+      display: inline;
+      font-size: 35px;
+      color: $white;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .spent-today {
+    margin: 0 10px;
+    width: 60% !important;
+    h1 {
+      font-size: 15px;
+      color: $bgray;
+      padding: 0;
+      margin: 0;
+      margin-top: 10px;
+    }
+    div {
+      display:flex;
+      flex-flow: wrap row;
+      align-items: center;
+      div {
+        span {
+          font-size: 35px;
+          margin-right: 5px;
+          color: $bgray;
+        }
+        h4 {
+          padding: 0;
+          margin: 0;
+          display: inline;
+          color: $tblue;
+          font-size: 35px;
+        }
+      }
+      div.progress {
+        width: 300px;
+        height: 25px;
+        margin-left: 15px;
+      }
+      .edit-btn {
+        cursor: pointer;
+        margin-left: 15px;
+        i {
+          font-size: 20px;
+          color: $tblue;
+        }
+      }
+    }
+  }
+}
+
+.right-container {
+  margin: 20px 0;
+}
+
+.profile-card {
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $bwhite;
+  padding: 20px 0;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  img {
+    width: 50px;
+    border-radius: 100%;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  span {
+    color: $bgray;
+  }
+  div.card-icons {
+    display: flex;
+    flex-flow: wrap row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100px;
+    margin-top: 12px;
+    i {
+      font-size: 15px;
+      background-color:$tblue;
+      border-radius: 100%;
+      padding: 8px;
+      color: $bwhite;
+      cursor: pointer;
+    }
+  }
+}
+
+.cards-card {
+ h1 {
+   font-size: 20px;
+ }
+}
+
+.credit-card {
+  border: 1px solid $tblue;
+  background-color: $tblue;
+  border-radius: 6px;
+  width: 130px;
+  padding: 10px;
+  img {
+    width: 50px !important;
+  }
+  div {
+    display: flex;
+    flex-flow: wrap row;
+    align-items: center;
+    justify-content: space-around;
+    i {
+      margin: 10px 10px 10px 0;
+      color: $tbeige;
+    }
+    span, p {
+      font-weight: 700;
+      color: $tbeige;
+    }
+    span {
+      font-size: 25px;
+    }
+    i {
+      transform: translateY(-20%) translateX(10%);
+    }
+    p {
+      transform: translateY(-35%);
+      font-size: 15px;
+    }
+  }
+
+  p {
+    font-size: 10px;
+    padding: 0;
+    margin: 10px 0 0 0;
+    color: $bgray;
+  }
+  h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    color: $tbeige;
+    font-weight: 600;
+  }
+}
+
+.credit-card-add {
+  background-color: $bgray;
+  width: 130px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cards {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-around;
+}
+
+
+.card-history {
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  flex-flow: wrap column;
+  .card-history-title {
+    display: flex;
+    flex-flow: wrap row;
+    align-items: center;
+    justify-content: space-between;
+    h1 {
+      font-size: 15px;
+    }
+    span {
+      cursor: pointer;
+      font-size: 10px;
+      background-color: $tblue;
+      color: $tbeige;
+      padding: 6px;
+      border-radius: 100%;
+    }
+  }
+  .card-history-body {
+    margin-top: 10px;
+    display: flex;
+    flex-flow: nowrap column;
+    align-items: center;
+    height: 120px;
+    overflow-y: scroll;
+    overflow-x: none;
+    .card-history-item {
+      margin-top: 5px;
+      display: flex;
+      flex-flow: wrap row;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      i {
+        padding: 8px;
+        background-color: $tbeige;
+        border-radius: 100%;
+      }
+      div {
+        display: flex;
+        flex-flow: wrap column;
+        h3 {
+          font-size: 10px;
+        }
+        span {
+          font-size: 8px;
+          color: $bgray;
+        }
+      }
+      h4 {
+        font-weight:800;
+        color: #9a9acc;
+        font-size: 12px;
+        span {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+

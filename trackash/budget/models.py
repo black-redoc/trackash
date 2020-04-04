@@ -76,7 +76,7 @@ class Budget(models.Model):
 
     created_at = models.DateTimeField(_("Created At"), auto_now_add=True)
     modified_at = models.DateTimeField(_("Modified At"), auto_now=True)
-    budget = models.DecimalField(_("Budget"), max_digits=11, decimal_places=2)
+    balance = models.DecimalField(_("Budget"), max_digits=11, decimal_places=2)
     incomes = models.DecimalField(_("Incomes"), max_digits=11, decimal_places=2)
     expenses = models.DecimalField(_("Expenses"), max_digits=11, decimal_places=2)
 

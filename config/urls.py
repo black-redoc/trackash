@@ -4,9 +4,10 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
+from .views import index_dashboard
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
+    path("", index_dashboard),
     path(
         "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
     ),
@@ -16,6 +17,7 @@ urlpatterns = [
     path("users/", include("trackash.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path("budget/", include("trackash.budget.urls", namespace="budget")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

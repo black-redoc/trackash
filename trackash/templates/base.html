@@ -26,28 +26,28 @@
     <!-- This file stores project-specific CSS -->
     
     <link href="{% static 'css/project.css' %}" rel="stylesheet">
-    
+    <link href="{% static 'css/icofont/icofont.min.css'%}" rel="stylesheet">
     
     {% endblock %}
 
   </head>
 
   <body>
-
-    <div class="mb-1">
+  <!--
+    <div class="mb-1 mt-1">
       <nav class="navbar navbar-expand-md navbar-light bg-light">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="{% url 'home' %}">trackash</a>
+        <a class="navbar-brand" href="{#% url '' %}">trackash</a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-navv mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{#% url '' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
+              <a class="nav-link" href="{#% url '' %}">About</a>
             </li>
             {% if request.user.is_authenticated %}
               <li class="nav-item">
@@ -72,6 +72,37 @@
         </div>
       </nav>
 
+    </div>
+  -->
+
+    <div class="left_navbar">
+    <ul class="navbar-nav">
+      <a href="#"class="link lactive">
+        <!-- Here goes the favicon -->  
+        <li class="nav-icon mt-3"><i class="icofont-bolt"></i></li>
+      </a>
+      <a href="#"class="link lactive" title="Dashboard">
+        <li class="nav-item nitem-left nitem-active mt-3"><i class="icofont-dashboard-web"></i></li>
+      </a>
+      <a href="#"class="link" title="Expenses">
+        <li class="nav-item nitem-left"><i class="icofont-download"></i></li>
+      </a>
+      <a href="#"class="link" title="Incomes"> 
+        <li class="nav-item nitem-left"><i class="icofont-credit-card"></i></li>
+      </a>
+      <a href="#"class="link" title="Statistics">
+        <li class="nav-item nitem-left"><i class="icofont-chart-line"></i></li>
+      </a>
+      <a href="#"class="link" title="Profile">
+        <li class="nav-item nitem-left"><i class="icofont-user-alt-7"></i></li>
+      </a>
+      <a href="#"class="link" title="Tasks">
+        <li class="nav-item nitem-left"><i class="icofont-tasks"></i></li>
+      </a>
+      <a href="#"class="link" title="Settings">
+        <li class="nav-item nitem-left"><i class="icofont-gear-alt"></i></li>
+      </a>
+    </ul>
     </div>
 
     <div class="container">
@@ -104,11 +135,12 @@
       
 
       <!-- place project specific Javascript in this file -->
-      
-      <script src="{% static 'js/project.js' %}"></script>
+      <script defer src="{% static 'js/dist/0.main.js' %}"></script>
+      <script defer src="{% static 'js/dist/2.main.js' %}"></script>
+      <script defer src="{% static 'js/dist/3.main.js' %}"></script>
+      <script defer src="{% static 'js/dist/main.js' %}"></script>
       
 
     {% endblock javascript %}
   </body>
 </html>
- 

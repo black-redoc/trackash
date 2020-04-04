@@ -12,11 +12,11 @@ def post_save_income(sender, instance, *args, **kwargs):
     try:
         budget_ = Budget.objects.get(id=1)
         budget_.incomes += Decimal(str(instance.value))
-        budget_.budget += Decimal(str(instance.value))
+        budget_.balance += Decimal(str(instance.value))
         budget_.save()
     except:
         Budget.objects.create(
-            budget=Decimal(str(instance.value)),
+            balance=Decimal(str(instance.value)),
             incomes=Decimal(str(instance.value)),
             expenses=Decimal(),
         )
@@ -28,11 +28,11 @@ def post_save_expense(sender, instance, *args, **kwargs):
     try:
         budget_ = Budget.objects.get(id=1)
         budget_.expenses += Decimal(str(instance.value))
-        budget_.budget -= Decimal(str(instance.value))
+        budget_.balance -= Decimal(str(instance.value))
         budget_.save()
     except:
         Budget.objects.create(
-            budget=Decimal(str(-instance.value)),
+            balance=Decimal(str(-instance.value)),
             incomes=Decimal(),
             expenses=Decimal(str(instance.value)),
         )
