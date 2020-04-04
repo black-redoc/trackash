@@ -1,5 +1,5 @@
-import chart_monthtly from './charts';
+import chart_monthly from "./charts";
 
-(async function() {
-  await chart_monthtly()
-})()
+(async function () {
+  await chart_monthly();
+})();
