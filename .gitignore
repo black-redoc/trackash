@@ -283,4 +283,9 @@ trackash/media/
 
 .pytest_cache/
 
+### sass compiled map files
+*.css.map
+ass-cache/
+*.sass.map
+*.scss.map
 

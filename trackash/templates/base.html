@@ -81,13 +81,13 @@
         <!-- Here goes the favicon -->  
         <li class="nav-icon mt-3"><i class="icofont-bolt"></i></li>
       </a>
-      <a href="#"class="link lactive" title="Dashboard">
+      <a href="{% url 'budget:dashboard' %}"class="link lactive" title="Dashboard">
         <li class="nav-item nitem-left nitem-active mt-3"><i class="icofont-dashboard-web"></i></li>
       </a>
       <a href="#"class="link" title="Expenses">
         <li class="nav-item nitem-left"><i class="icofont-download"></i></li>
       </a>
-      <a href="#"class="link" title="Incomes"> 
+      <a href="{% url 'budget:income' %}"class="link" title="Incomes"> 
         <li class="nav-item nitem-left"><i class="icofont-credit-card"></i></li>
       </a>
       <a href="#"class="link" title="Statistics">
