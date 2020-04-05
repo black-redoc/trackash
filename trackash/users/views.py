@@ -8,6 +8,13 @@ from django.views.generic import DetailView, RedirectView, UpdateView
 User = get_user_model()
 
 
+
+class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+    model = User
+    slug_field = "username"
+    slug_url_kwarg = "username"
+
+
 class UserDetailView(LoginRequiredMixin, DetailView):
 
     model = User
