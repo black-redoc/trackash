@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic.edit import CreateView
@@ -7,7 +8,7 @@ from .models import Budget, Income, Expense
 from .forms import IncomeForm, ExpenseForm
 
 
-class DashboardView(View):
+class DashboardView(LoginRequiredMixin, View):
     budget = Budget.objects.first()
     context = {"budget": budget}
 
@@ -15,13 +16,13 @@ class DashboardView(View):
         return render(request, "budget/dashboard.html", self.context)
 
 
-class IncomeCreateView(CreateView):
+class IncomeCreateView(LoginRequiredMixin, CreateView):
     model = Income
     form_class = IncomeForm
     success_url = reverse_lazy("budget:dashboard")
 
 
-class ExpenseCreateView(CreateView):
+class ExpenseCreateView(LoginRequiredMixin, CreateView):
     model = Expense
     form_class = ExpenseForm
     success_url = reverse_lazy("budget:dashboard")
