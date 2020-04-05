@@ -5,6 +5,12 @@ from django.utils.translation import ugettext_lazy as _
 User = get_user_model()
 
 
+class ProfileUpdateForm(forms.UserChangeForm):
+    class Meta(forms.UserChangeForm.Meta):
+        model = User
+        fields = ("username", "email", "password",)
+
+
 class UserChangeForm(forms.UserChangeForm):
     class Meta(forms.UserChangeForm.Meta):
         model = User
