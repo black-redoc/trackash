@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth import get_user_model
+from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
@@ -8,9 +9,9 @@ from django.views.generic import DetailView, RedirectView, UpdateView
 User = get_user_model()
 
 
-
-class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+class ProfileUpdateView(LoginRequiredMixin, PasswordChangeView):
     model = User
+    template_name = "users/profile.html"
     slug_field = "username"
     slug_url_kwarg = "username"
 
