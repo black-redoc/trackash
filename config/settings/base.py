@@ -72,7 +72,7 @@ THIRD_PARTY_APPS = (
     "allauth.account",
     "allauth.socialaccount",
     "django_extensions",
-    # "rest_framework",
+    "rest_framework",
 )
 
 LOCAL_APPS = (
