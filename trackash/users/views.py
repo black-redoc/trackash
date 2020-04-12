@@ -5,8 +5,24 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import DetailView, RedirectView, UpdateView
+from rest_framework import mixins, generics
+
+from .serializers import ProfileSerializer
 
 User = get_user_model()
+
+
+class ProfileAPIView(
+    mixins.RetrieveModelMixin, mixins.UpdateModelMixin, generics.GenericAPIView
+):
+    queryset = User.objects.all()
+    serializer_class = ProfileSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
 
 
 class ProfileUpdateView(LoginRequiredMixin, PasswordChangeView):
