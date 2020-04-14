@@ -4,7 +4,7 @@
 {% block content %} 
   <h1 class="mt-3 profile-title">My Budget <span>{{ request.user.username }}</span></h1>
   <div class="row">
-    <form class="col col-sm-4 mt-4" method="post">{% csrf_token %}
+    <form id="frmImg" class="col col-sm-4 mt-4" method="post">{% csrf_token %}
       <img class="rounded-circle img-thumbnail profile-img" src="https://images.unsplash.com/photo-1513789181297-6f2ec112c0bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"/>
       <button class="btn btn-light mt-5 upload-img">
         Upload<i class="icofont-camera ml-3"></i>
