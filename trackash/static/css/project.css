@@ -453,6 +453,7 @@
   height: 280px;
   object-fit: cover;
   object-position: 100% 0;
+  pointer-events: none;
 }
 
 .upload-img {
