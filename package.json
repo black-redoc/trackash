@@ -10,6 +10,9 @@
     "start": "sass --watch ./trackash/static/sass/:./trackash/static/css/",
     "build": "webpack --mode=production"
   },
+  "alias": {
+    "vue": "./node_modules/vue/dist/vue.common.js"
+  },
   "dependencies": {
     "chart.js": "^2.9.3",
     "patternomaly": "^1.3.2",
