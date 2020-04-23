@@ -6,11 +6,7 @@ const frmImg = () => {
     data: {
       fexplorer: document.getElementById("fileExplorer"),
       csrf_token: document.getElementsByName("csrfmiddlewaretoken"),
-      imgPath: "http://localhost:8000/api/profile/",
-      profile: {
-        img:
-          "https://images.unsplash.com/photo-1513789181297-6f2ec112c0bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
-      },
+      imgPath: `http://${window.location.host}/api/profile/`,
     },
     methods: {
       imsubmit(e) {
@@ -25,8 +21,7 @@ const frmImg = () => {
           if (file) {
             const reader = new FileReader();
             reader.onload = function () {
-              console.log(self.profile.img);
-              self.profile.img = this.result;
+              document.getElementById("profile-img").src = this.result;
 
               fetch(`${self.imgPath}update/1/`, {
                 method: "PUT",
@@ -42,23 +37,13 @@ const frmImg = () => {
                   console.log(res);
                   res.json();
                 })
-                .then(console.log);
+                .then();
             };
 
             reader.readAsDataURL(file);
           }
         };
       },
-      loadImage() {
-        fetch(`${this.imgPath}1/`)
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.image_profile) this.profile.img = data.image_profile;
-          });
-      },
-    },
-    created() {
-      this.loadImage();
     },
     mounted() {
       this.fExplorerOnChange();
