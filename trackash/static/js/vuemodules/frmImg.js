@@ -5,7 +5,8 @@ const frmImg = () => {
     el: "#AppfrmImg",
     data: {
       fexplorer: document.getElementById("fileExplorer"),
-      imgPath: "http://localhost:8000/api/profile/1/",
+      csrf_token: document.getElementsByName("csrfmiddlewaretoken"),
+      imgPath: "http://localhost:8000/api/profile/",
       profile: {
         img:
           "https://images.unsplash.com/photo-1513789181297-6f2ec112c0bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
@@ -26,11 +27,16 @@ const frmImg = () => {
             reader.onload = function () {
               console.log(self.profile.img);
               self.profile.img = this.result;
-              console.log(self.profile.img);
 
-              fetch(self.imgPath, {
+              fetch(`${self.imgPath}update/1/`, {
                 method: "PUT",
-                body: new FormData().append("file", this.result),
+                headers: {
+                  "Content-Type": "application/json",
+                  "X-CSRFToken": self.csrf_token[0].value,
+                },
+                body: JSON.stringify({
+                  image_profile: this.result,
+                }),
               })
                 .then((res) => {
                   console.log(res);
@@ -44,15 +50,17 @@ const frmImg = () => {
         };
       },
       loadImage() {
-        fetch(this.imgPath)
+        fetch(`${this.imgPath}1/`)
           .then((res) => res.json())
           .then((data) => {
             if (data.image_profile) this.profile.img = data.image_profile;
           });
       },
     },
-    mounted() {
+    created() {
       this.loadImage();
+    },
+    mounted() {
       this.fExplorerOnChange();
     },
   });
