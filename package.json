@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "sass --watch ./trackash/static/sass/:./trackash/static/css/",
-    "build": "webpack --mode=production"
+    "dev": "webpack --watch --mode=production"
   },
   "alias": {
     "vue": "./node_modules/vue/dist/vue.common.js"
