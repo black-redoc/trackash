@@ -29,6 +29,12 @@ class ProfileUpdateView(LoginRequiredMixin, PasswordChangeView):
     slug_url_kwarg = "username"
 
 
+    def get_context_data(self, **kwargs):
+        context = super(ProfileUpdateView, self).get_context_data()
+        context["image_profile"] = User.objects.get(username=self.request.user).image_profile
+        return context
+    
+
 class UserDetailView(LoginRequiredMixin, DetailView):
 
     model = User
