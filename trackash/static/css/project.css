@@ -452,7 +452,9 @@
   width: 280px;
   height: 280px;
   object-fit: cover;
-  object-position: 100% 0;
+  object-position: 50% 0;
+  pointer-events: none;
+  user-select: none;
 }
 
 .upload-img {

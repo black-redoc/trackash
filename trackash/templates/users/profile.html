@@ -4,9 +4,10 @@
 {% block content %} 
   <h1 class="mt-3 profile-title">My Budget <span>{{ request.user.username }}</span></h1>
   <div class="row">
-    <form class="col col-sm-4 mt-4" method="post">{% csrf_token %}
-      <img class="rounded-circle img-thumbnail profile-img" src="https://images.unsplash.com/photo-1513789181297-6f2ec112c0bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"/>
-      <button class="btn btn-light mt-5 upload-img">
+    <form id="AppfrmImg" class="col col-sm-4 mt-4" method="put">{% csrf_token %}
+      <img id="profile-img" class="rounded-circle img-thumbnail profile-img" src="{{ MEDIA_URL }}{{ image_profile }}"/>
+      <input id="fileExplorer" type="file" enctype="multipart/form-data" accept="image/png,image/jpeg,image/jpg" hidden/>
+      <button class="btn btn-light mt-5 upload-img" @click="imsubmit">
         Upload<i class="icofont-camera ml-3"></i>
       </button>
     </form>
@@ -15,11 +16,11 @@
         <h4 class="mb-3 form-title">Personal Information:</h4>
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="text" class="form-control" placeholder="Username">
+          <input type="text" class="form-control" placeholder="Username" v-model="profile.username" v-bind:value="profile.username">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" placeholder="Email" v-model="profile.email" v-bind:value="profile.username">
         </div>
       </form>
       <form class="mt-5" method="post">{% csrf_token %}
